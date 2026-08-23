@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Festa Event Organiser | Luxury Event Management in Bengaluru</title>
+<meta name="description" content="Festa Event Organiser — Bengaluru's premium event management company. Weddings, corporate events, birthdays, stage & floral decoration. 4.9★ rated, 331+ happy clients. Book your dream celebration today." />
+<meta name="keywords" content="Event Management Bengaluru, Wedding Planner Bangalore, Festa Event Organiser, Luxury Events, Birthday Party Planner, Corporate Events, Stage Decoration Bengaluru" />
+<meta property="og:title" content="Festa Event Organiser | Creating Extraordinary Events & Unforgettable Memories" />
+<meta property="og:description" content="From dream weddings to corporate events — we turn your vision into reality. 4.9★ | 331+ Reviews." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#D4AF37',
+        midnight: '#0F0F0F',
+        champagne: '#F8F4EC',
+        burgundy: '#7B1025',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['Poppins', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Festa Event Organiser",
+  "image": "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200",
+  "description": "Premium event management company in Bengaluru specializing in weddings, corporate events, birthdays and luxury decorations.",
+  "telephone": "+917353360161",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "133 Kalki Nilaya, Gayathri Layout, 16th Cross, Basavanapura Main Rd, Krishnarajapuram",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "postalCode": "560036",
+    "addressCountry": "IN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "331"
+  },
+  "priceRange": "$$"
+}
+</script>
+<style>
+  * { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background:#0F0F0F; color:#fff; overflow-x:hidden; }
+  h1,h2,h3,h4,.font-display { font-family:'Playfair Display', serif; }
+
+  /* Loader */
+  #loader {
+    position:fixed; inset:0; z-index:9999; background:#0F0F0F;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity .8s ease, visibility .8s ease;
+  }
+  #loader.hidden { opacity:0; visibility:hidden; }
+  .loader-logo { font-family:'Playfair Display'; font-size:clamp(2rem,6vw,4rem); color:#D4AF37; letter-spacing:.15em; opacity:0; animation:fadeInLoader 1s forwards; }
+  .loader-sub { color:#F8F4EC; letter-spacing:.35em; text-transform:uppercase; font-size:.7rem; margin-top:.8rem; opacity:0; animation:fadeInLoader 1s .3s forwards; }
+  .loader-bar { width:180px; height:2px; background:rgba(212,175,55,.2); margin-top:1.5rem; overflow:hidden; border-radius:2px; }
+  .loader-bar span { display:block; height:100%; width:0; background:linear-gradient(90deg,#D4AF37,#F8F4EC); animation:load 1.8s ease forwards; }
+  @keyframes load { to { width:100%; } }
+  @keyframes fadeInLoader { to { opacity:1; } }
+
+  /* Gold gradient text */
+  .gold-text { background:linear-gradient(120deg,#D4AF37,#f5e08a,#D4AF37); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .gold-line { width:80px; height:3px; background:linear-gradient(90deg,#D4AF37,transparent); }
+
+  /* Glass card */
+  .glass { background:rgba(255,255,255,0.05); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(212,175,55,.2); }
+
+  /* Reveal animation */
+  .reveal { opacity:0; transform:translateY(40px); transition:all 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.active { opacity:1; transform:translateY(0); }
+
+  /* Navbar */
+  #navbar { transition:all .4s ease; }
+  #navbar.scrolled { background:rgba(15,15,15,.85); backdrop-filter:blur(14px); border-bottom:1px solid rgba(212,175,55,.15); }
+
+  /* Hero */
+  .hero-bg { background:linear-gradient(rgba(15,15,15,.55),rgba(15,15,15,.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600') center/cover fixed; }
+  @media(max-width:768px){ .hero-bg { background-attachment:scroll; } }
+
+  .btn-gold { background:linear-gradient(120deg,#D4AF37,#b8932e); color:#0F0F0F; transition:all .4s ease; position:relative; overflow:hidden; }
+  .btn-gold:hover { box-shadow:0 10px 30px rgba(212,175,55,.4); transform:translateY(-3px); }
+  .btn-outline { border:1.5px solid #D4AF37; color:#D4AF37; transition:all .4s ease; }
+  .btn-outline:hover { background:#D4AF37; color:#0F0F0F; transform:translateY(-3px); box-shadow:0 10px 30px rgba(212,175,55,.3); }
+
+  /* Service card */
+  .service-card { transition:all .5s cubic-bezier(.16,1,.3,1); }
+  .service-card:hover { transform:translateY(-8px); border-color:#D4AF37; background:rgba(212,175,55,.08); }
+  .service-card:hover .service-icon { transform:scale(1.15) rotate(6deg); color:#D4AF37; }
+  .service-icon { transition:all .5s ease; }
+
+  /* Portfolio */
+  .gallery-item { overflow:hidden; position:relative; cursor:pointer; }
+  .gallery-item img { transition:transform .8s cubic-bezier(.16,1,.3,1); }
+  .gallery-item:hover img { transform:scale(1.12); }
+  .gallery-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(123,16,37,.75),transparent); opacity:0; transition:opacity .5s ease; display:flex; align-items:flex-end; padding:1.5rem; }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+
+  /* Lightbox */
+  #lightbox { position:fixed; inset:0; z-index:9998; background:rgba(15,15,15,.95); display:none; align-items:center; justify-content:center; padding:2rem; }
+  #lightbox.open { display:flex; }
+  #lightbox img { max-width:90%; max-height:85vh; border:3px solid #D4AF37; border-radius:8px; }
+
+  /* FAQ */
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height .5s ease; }
+  .faq-item.open .faq-answer { max-height:300px; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+  .faq-icon { transition:transform .4s ease; }
+
+  /* Float buttons */
+  .float-btn { transition:all .3s ease; }
+  .float-btn:hover { transform:scale(1.1); }
+  @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);} 70%{box-shadow:0 0 0 15px rgba(37,211,102,0);} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+  .wa-pulse { animation:pulse-ring 2s infinite; }
+
+  #scrollTop { opacity:0; visibility:hidden; transition:all .4s ease; }
+  #scrollTop.show { opacity:1; visibility:visible; }
+
+  /* Testimonial scroll */
+  .testi-track { scrollbar-width:none; }
+  .testi-track::-webkit-scrollbar { display:none; }
+
+  ::-webkit-scrollbar { width:10px; }
+  ::-webkit-scrollbar-track { background:#0F0F0F; }
+  ::-webkit-scrollbar-thumb { background:#D4AF37; border-radius:5px; }
+
+  .divider-fancy { display:flex; align-items:center; justify-content:center; gap:1rem; }
+  .divider-fancy::before, .divider-fancy::after { content:''; height:1px; width:50px; background:#D4AF37; }
+</style>
+</head>
+<body class="bg-midnight">
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">Festa</div>
+  <div class="loader-sub">Event Organiser</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#home" class="flex flex-col leading-none">
+      <span class="font-display text-2xl md:text-3xl gold-text font-bold tracking-wide">Festa</span>
+      <span class="text-[9px] md:text-[10px] tracking-[0.3em] text-champagne uppercase">Event Organiser</span>
+    </a>
+    <ul class="hidden lg:flex items-center gap-8 text-sm tracking-wide">
+      <li><a href="#home" class="hover:text-gold transition">Home</a></li>
+      <li><a href="#about" class="hover:text-gold transition">About</a></li>
+      <li><a href="#services" class="hover:text-gold transition">Services</a></li>
+      <li><a href="#gallery" class="hover:text-gold transition">Gallery</a></li>
+      <li><a href="#process" class="hover:text-gold transition">Process</a></li>
+      <li><a href="#reviews" class="hover:text-gold transition">Reviews</a></li>
+      <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
+      <li><a href="#contact" class="hover:text-gold transition">Contact</a></li>
+    </ul>
+    <a href="#contact" class="hidden md:inline-block btn-gold px-6 py-2.5 rounded-full text-sm font-semibold">Book Now</a>
+    <button id="menuBtn" class="lg:hidden text-gold text-2xl">&#9776;</button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="lg:hidden hidden mt-4 glass rounded-2xl p-6 flex flex-col gap-4 text-center">
+    <a href="#home" class="hover:text-gold transition">Home</a>
+    <a href="#about" class="hover:text-gold transition">About</a>
+    <a href="#services" class="hover:text-gold transition">Services</a>
+    <a href="#gallery" class="hover:text-gold transition">Gallery</a>
+    <a href="#process" class="hover:text-gold transition">Process</a>
+    <a href="#reviews" class="hover:text-gold transition">Reviews</a>
+    <a href="#faq" class="hover:text-gold transition">FAQ</a>
+    <a href="#contact" class="hover:text-gold transition">Contact</a>
+    <a href="#contact" class="btn-gold px-6 py-2.5 rounded-full text-sm font-semibold">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero-bg min-h-screen flex items-center justify-center relative text-center px-6">
+  <div class="max-w-4xl mx-auto pt-24 pb-16">
+    <p class="reveal text-gold tracking-[0.4em] uppercase text-xs md:text-sm mb-6">Bengaluru's Premier Event Company</p>
+    <h1 class="reveal font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+      Crafting <span class="gold-text italic">Unforgettable</span> Celebrations with Elegance
+    </h1>
+    <p class="reveal text-champagne/80 text-base md:text-lg max-w-2xl mx-auto mb-10">
+      From Dream Weddings to Corporate Events, Birthday Celebrations, Engagements and Luxury Decorations—we turn your vision into reality.
+    </p>
+    <div class="reveal flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#contact" class="btn-gold px-8 py-3.5 rounded-full font-semibold w-full sm:w-auto">Book Free Consultation</a>
+      <a href="https://wa.me/917353360161" target="_blank" class="btn-outline px-8 py-3.5 rounded-full font-semibold w-full sm:w-auto">WhatsApp Now</a>
+    </div>
+    <div class="reveal mt-12 flex items-center justify-center gap-2 text-sm">
+      <span class="text-gold text-lg">★★★★★</span>
+      <span class="text-champagne/80">4.9 Google Rating · 331+ Reviews</span>
+    </div>
+  </div>
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold animate-bounce text-2xl">&#8595;</a>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 bg-midnight relative">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal grid grid-cols-2 gap-4">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600" class="rounded-2xl h-64 w-full object-cover" alt="Luxury wedding decor" />
+      <img loading="lazy" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" class="rounded-2xl h-64 w-full object-cover mt-8" alt="Elegant event setup" />
+      <img loading="lazy" src="https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600" class="rounded-2xl h-64 w-full object-cover -mt-4" alt="Floral decoration" />
+      <img loading="lazy" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" class="rounded-2xl h-64 w-full object-cover mt-4" alt="Celebration event" />
+    </div>
+    <div class="reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">About Festa</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight">Where Every Detail Becomes a <span class="gold-text italic">Masterpiece</span></h2>
+      <div class="gold-line mb-8"></div>
+      <p class="text-champagne/80 mb-5 leading-relaxed">
+        Festa Event Organiser is one of Bengaluru's most trusted names in premium event management, delivering extraordinary experiences with creativity, precision and excellence. With years of expertise, our professional team transforms your visions into flawless celebrations.
+      </p>
+      <p class="text-champagne/70 mb-8 leading-relaxed">
+        We believe every event tells a story. From intimate gatherings to grand celebrations, we offer fully customized planning, premium decorations and end-to-end management—ensuring complete customer satisfaction, every single time.
+      </p>
+      <div class="grid grid-cols-3 gap-4 mb-8">
+        <div class="text-center"><div class="font-display text-3xl gold-text font-bold">10+</div><div class="text-xs text-champagne/60 mt-1">Years Expertise</div></div>
+        <div class="text-center"><div class="font-display text-3xl gold-text font-bold">500+</div><div class="text-xs text-champagne/60 mt-1">Events Done</div></div>
+        <div class="text-center"><div class="font-display text-3xl gold-text font-bold">4.9★</div><div class="text-xs text-champagne/60 mt-1">Client Rating</div></div>
+      </div>
+      <a href="#contact" class="btn-gold px-8 py-3 rounded-full font-semibold inline-block">Plan Your Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 px-6 bg-gradient-to-b from-midnight to-[#141414]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">What We Offer</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Our Premium <span class="gold-text italic">Services</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="py-24 px-6 bg-midnight relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">The Festa Difference</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Why Choose <span class="gold-text italic">Festa</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="py-20 px-6 bg-gradient-to-r from-burgundy/40 via-midnight to-burgundy/40">
+  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="reveal"><div class="counter font-display text-4xl md:text-6xl gold-text font-bold" data-target="331">0</div><p class="text-champagne/70 mt-2 text-sm tracking-wide">Happy Clients</p></div>
+    <div class="reveal"><div class="counter font-display text-4xl md:text-6xl gold-text font-bold" data-target="500">0</div><p class="text-champagne/70 mt-2 text-sm tracking-wide">Successful Events</p></div>
+    <div class="reveal"><div class="counter font-display text-4xl md:text-6xl gold-text font-bold" data-target="20">0</div><p class="text-champagne/70 mt-2 text-sm tracking-wide">Event Categories</p></div>
+    <div class="reveal"><div class="font-display text-4xl md:text-6xl gold-text font-bold">4.9<span class="text-2xl">★</span></div><p class="text-champagne/70 mt-2 text-sm tracking-wide">Google Rating</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24 px-6 bg-[#141414]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Our Work</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Portfolio <span class="gold-text italic">Gallery</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="py-24 px-6 bg-midnight">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">How We Work</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Our <span class="gold-text italic">Process</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="grid md:grid-cols-5 gap-6" id="processGrid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="py-24 px-6 bg-gradient-to-b from-[#141414] to-midnight">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Client Love</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">What Our <span class="gold-text italic">Clients Say</span></h2>
+      <div class="flex items-center justify-center gap-2 mt-4">
+        <span class="text-gold text-xl">★★★★★</span>
+        <span class="text-champagne/80 text-sm">4.9 · 331+ Google Reviews</span>
+      </div>
+    </div>
+    <div class="testi-track flex gap-6 overflow-x-auto pb-6 snap-x" id="testiTrack"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-6 bg-midnight">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Got Questions?</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Frequently Asked <span class="gold-text italic">Questions</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="space-y-4" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 relative" style="background:linear-gradient(rgba(15,15,15,.8),rgba(123,16,37,.7)),url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600') center/cover;">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <h2 class="font-display text-3xl md:text-6xl font-bold mb-6 leading-tight">Let's Create Your <span class="gold-text italic">Dream Celebration</span></h2>
+    <p class="text-champagne/80 mb-10 max-w-xl mx-auto">Every extraordinary event begins with a conversation. Let's turn your vision into an unforgettable reality.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contact" class="btn-gold px-10 py-4 rounded-full font-semibold text-lg">Book Your Event Today</a>
+      <a href="tel:+917353360161" class="btn-outline px-10 py-4 rounded-full font-semibold text-lg">Call +91 73533 60161</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 bg-midnight">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Get In Touch</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Contact <span class="gold-text italic">Festa</span></h2>
+      <div class="divider-fancy"><span class="text-gold">✦</span></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <!-- Form -->
+      <div class="glass rounded-3xl p-8 reveal">
+        <h3 class="font-display text-2xl mb-6 gold-text">Send Us a Message</h3>
+        <form id="contactForm" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <input required type="text" placeholder="Your Name" class="w-full bg-white/5 border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition" />
+            <input required type="tel" placeholder="Phone Number" class="w-full bg-white/5 border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition" />
+          </div>
+          <input required type="email" placeholder="Email Address" class="w-full bg-white/5 border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition" />
+          <select class="w-full bg-white/5 border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition text-champagne/70">
+            <option class="bg-midnight">Select Event Type</option>
+            <option class="bg-midnight">Wedding</option>
+            <option class="bg-midnight">Engagement / Reception</option>
+            <option class="bg-midnight">Birthday Party</option>
+            <option class="bg-midnight">Corporate Event</option>
+            <option class="bg-midnight">Baby Shower / Naming</option>
+            <option class="bg-midnight">Anniversary</option>
+            <option class="bg-midnight">Other</option>
+          </select>
+          <textarea rows="4" placeholder="Tell us about your dream event..." class="w-full bg-white/5 border border-gold/20 rounded-xl px-4 py-3 focus:outline-none focus:border-gold transition"></textarea>
+          <button type="submit" class="btn-gold w-full py-4 rounded-xl font-semibold">Request Free Consultation</button>
+          <p id="formMsg" class="text-gold text-center text-sm hidden">✓ Thank you! We'll contact you within 24 hours.</p>
+        </form>
+      </div>
+      <!-- Info + Map -->
+      <div class="reveal space-y-6">
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="text-gold text-2xl">📞</div>
+          <div><h4 class="font-semibold mb-1">Call Us</h4><a href="tel:+917353360161" class="text-champagne/70 hover:text-gold transition">+91 73533 60161</a></div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="text-gold text-2xl">📍</div>
+          <div><h4 class="font-semibold mb-1">Visit Us</h4><p class="text-champagne/70 text-sm">133 Kalki Nilaya, Gayathri Layout, 16th Cross, Basavanapura Main Rd, Krishnarajapuram, Bengaluru, Karnataka 560036</p></div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex items-start gap-4">
+          <div class="text-gold text-2xl">💬</div>
+          <div><h4 class="font-semibold mb-1">WhatsApp</h4><a href="https://wa.me/917353360161" target="_blank" class="text-champagne/70 hover:text-gold transition">Chat with us instantly</a></div>
+        </div>
+        <div class="rounded-2xl overflow-hidden border border-gold/20 h-64">
+          <iframe src="https://www.google.com/maps?q=Krishnarajapuram+Bengaluru&output=embed" width="100%" height="100%" style="border:0;filter:grayscale(30%) invert(90%) hue-rotate(180deg);" loading="lazy" title="Festa Location"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#0a0a0a] pt-16 pb-8 px-6 border-t border-gold/15">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-12">
+    <div>
+      <div class="font-display text-3xl gold-text font-bold">Festa</div>
+      <p class="text-[10px] tracking-[0.3em] text-champagne uppercase mb-4">Event Organiser</p>
+      <p class="text-champagne/60 text-sm leading-relaxed">Creating Extraordinary Events & Unforgettable Memories across Bengaluru with luxury, precision & passion.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-midnight transition">f</a>
+        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-midnight transition">in</a>
+        <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-midnight transition">ig</a>
+        <a href="https://wa.me/917353360161" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-gold hover:text-midnight transition">wa</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-display text-lg mb-4 text-gold">Quick Links</h4>
+      <ul class="space-y-2 text-sm text-champagne/60">
+        <li><a href="#home" class="hover:text-gold transition">Home</a></li>
+        <li><a href="#about" class="hover:text-gold transition">About Us</a></li>
+        <li><a href="#services" class="hover:text-gold transition">Services</a></li>
+        <li><a href="#gallery" class="hover:text-gold transition">Gallery</a></li>
+        <li><a href="#reviews" class="hover:text-gold transition">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-display text-lg mb-4 text-gold">Services</h4>
+      <ul class="space-y-2 text-sm text-champagne/60">
+        <li><a href="#services" class="hover:text-gold transition">Wedding Planning</a></li>
+        <li><a href="#services" class="hover:text-gold transition">Corporate Events</a></li>
+        <li><a href="#services" class="hover:text-gold transition">Birthday Parties</a></li>
+        <li><a href="#services" class="hover:text-gold transition">Stage Decoration</a></li>
+        <li><a href="#services" class="hover:text-gold transition">Floral Designs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-display text-lg mb-4 text-gold">Contact</h4>
+      <ul class="space-y-3 text-sm text-champagne/60">
+        <li><a href="tel:+917353360161" class="hover:text-gold transition">📞 +91 73533 60161</a></li>
+        <li>📍 Krishnarajapuram, Bengaluru, KA 560036</li>
+        <li><a href="https://wa.me/917353360161" class="hover:text-gold transition">💬 WhatsApp Booking</a></li>
+        <li><span class="text-gold">★★★★★</span> 4.9 (331+ Reviews)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto border-t border-gold/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-champagne/50">
+    <p>© 2024 Festa Event Organiser. All Rights Reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gold transition">Privacy Policy</a>
+      <a href="#" class="hover:text-gold transition">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/917353360161" target="_blank" class="float-btn wa-pulse fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white text-2xl shadow-lg" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a href="tel:+917353360161" class="float-btn fixed bottom-6 left-6 z-40 w-14 h-14 bg-gold rounded-full flex items-center justify-center text-midnight text-2xl shadow-lg" aria-label="Call">📞</a>
+<button id="scrollTop" class="fixed bottom-24 right-6 z-40 w-12 h-12 glass rounded-full flex items-center justify-center text-gold text-xl border border-gold/40">↑</button>
+
+<!-- LIGHTBOX -->
+<div id="lightbox"><span class="absolute top-6 right-8 text-gold text-4xl cursor-pointer" onclick="closeLightbox()">&times;</span><img id="lightboxImg" src="" alt="Gallery preview" /></div>
+
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 1600);
+});
+
+// NAVBAR SCROLL
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// MOBILE MENU
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+// SCROLL TOP
+document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// SERVICES DATA
+const services = [
+  {i:'💍',t:'Wedding Planning'},{i:'💐',t:'Engagement Events'},{i:'🥂',t:'Reception Planning'},{i:'🎂',t:'Birthday Parties'},
+  {i:'🍼',t:'Baby Shower'},{i:'🙏',t:'Naming Ceremony'},{i:'💝',t:'Anniversary'},{i:'🏢',t:'Corporate Events'},
+  {i:'🚀',t:'Product Launches'},{i:'🎭',t:'Cultural Events'},{i:'🎪',t:'Stage Decoration'},{i:'🎈',t:'Balloon Decoration'},
+  {i:'🌸',t:'Floral Decoration'},{i:'📸',t:'Photography & Video'},{i:'🎧',t:'DJ & Entertainment'},{i:'🍽️',t:'Catering Services'},
+  {i:'✨',t:'Venue Decoration'},{i:'👰',t:'Bridal Entry Concepts'},{i:'🔊',t:'Sound & Lighting'},{i:'📋',t:'Event Coordination'}
+];
+document.getElementById('servicesGrid').innerHTML = services.map(s => `
+  <div class="service-card glass rounded-2xl p-6 text-center cursor-pointer">
+    <div class="service-icon text-4xl mb-4">${s.i}</div>
+    <h3 class="font-display text-lg">${s.t}</h3>
+  </div>`).join('');
+
+// WHY CHOOSE
+const why = [
+  {i:'🏆',t:'331+ Happy Clients'},{i:'⭐',t:'4.9 Google Rating'},{i:'💡',t:'Creative Concepts'},{i:'💎',t:'Affordable Luxury'},
+  {i:'👥',t:'Professional Team'},{i:'🎨',t:'Customized Planning'},{i:'⏰',t:'On-Time Execution'},{i:'🌟',t:'Premium Decorations'},
+  {i:'🔄',t:'End-to-End Management'},{i:'💰',t:'Transparent Pricing'}
+];
+document.getElementById('whyGrid').innerHTML = why.map(w => `
+  <div class="service-card glass rounded-2xl p-6 text-center">
+    <div class="service-icon text-3xl mb-3">${w.i}</div>
+    <h3 class="text-sm font-medium text-champagne/90">${w.t}</h3>
+  </div>`).join('');
+
+// GALLERY
+const gallery = [
+  {img:'1519741497674-611481863552',t:'Weddings'},
+  {img:'1464366400600-7168b8af9bc3',t:'Receptions'},
+  {img:'1530103862676-de8c9debad1d',t:'Birthdays'},
+  {img:'1511578314322-379afb476865',t:'Corporate Events'},
+  {img:'1478146059778-26028b07395a',t:'Stage Decorations'},
+  {img:'1465495976277-4387d4b0b4c6',t:'Floral Designs'},
+  {img:'1519167758481-83f550bb49b3',t:'Outdoor Events'},
+  {img:'1583939003579-730e3918a45a',t:'Traditional Ceremonies'}
+];
+document.getElementById('galleryGrid').innerHTML = gallery.map(g => `
+  <div class="gallery-item rounded-2xl h-56 md:h-64" onclick="openLightbox('https://images.unsplash.com/photo-${g.img}?w=1200')">
+    <img loading="lazy" src="https://images.unsplash.com/photo-${g.img}?w=600" class="w-full h-full object-cover" alt="${g.t}" />
+    <div class="gallery-overlay"><h3 class="font-display text-xl text-white">${g.t}</h3></div>
+  </div>`).join('');
+
+// LIGHTBOX
+function openLightbox(src){ document.getElementById('lightboxImg').src=src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+document.getElementById('lightbox').addEventListener('click', e => { if(e.target.id==='lightbox') closeLightbox(); });
+
+// PROCESS
+const process = [
+  {n:'01',t:'Consultation',d:'We listen to your vision, ideas and dreams.'},
+  {n:'02',t:'Planning',d:'Detailed planning tailored to your budget.'},
+  {n:'03',t:'Design',d:'Stunning concepts & creative themes.'},
+  {n:'04',t:'Execution',d:'Flawless on-time event delivery.'},
+  {n:'05',t:'Celebration',d:'You enjoy while we handle everything.'}
+];
+document.getElementById('processGrid').innerHTML = process.map(p => `
+  <div class="glass rounded-2xl p-6 text-center relative service-card">
+    <div class="font-display text-5xl gold-text font-bold mb-3">${p.n}</div>
+    <h3 class="font-display text-lg mb-2">${p.t}</h3>
+    <p class="text-champagne/60 text-sm">${p.d}</p>
+  </div>`).join('');
+
+// TESTIMONIALS
+const testi = [
+  {n:'Priya Sharma',e:'Wedding',r:'Festa made our wedding absolutely magical! Every detail was perfect, from the floral decoration to the stage. Highly recommended!'},
+  {n:'Rahul Menon',e:'Corporate Event',r:'Professional, punctual and creative. Our product launch was a huge success thanks to the Festa team. Truly world-class.'},
+  {n:'Ananya Reddy',e:'Birthday Party',r:'The balloon and theme decoration for my daughter\'s birthday was beyond our imagination. Everyone was stunned!'},
+  {n:'Vikram Rao',e:'Engagement',r:'Affordable luxury at its best. The bridal entry concept was breathtaking. Thank you Festa for the memories!'},
+  {n:'Sneha Kulkarni',e:'Reception',r:'From planning to execution, everything was seamless. Beautiful lighting, amazing catering. 5 stars from us!'},
+  {n:'Arjun Nair',e:'Anniversary',r:'They transformed our 25th anniversary into a fairytale evening. Impeccable service and stunning decor.'}
+];
+document.getElementById('testiTrack').innerHTML = testi.map(t => `
+  <div class="glass rounded-3xl p-8 min-w-[300px] md:min-w-[380px] snap-center flex-shrink-0">
+    <div class="text-gold text-lg mb-4">★★★★★</div>
+    <p class="text-champagne/80 italic mb-6 leading-relaxed">"${t.r}"</p>
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-burgundy flex items-center justify-center font-display text-lg text-midnight font-bold">${t.n[0]}</div>
+      <div><h4 class="font-semibold">${t.n}</h4><p class="text-xs text-gold">${t.e}</p></div>
+    </div>
+  </div>`).join('');
+
+// FAQ
+const faqs = [
+  {q:'How do I book an event with Festa?',a:'Simply call us, WhatsApp, or fill out our contact form. We offer a free consultation to understand your requirements and provide a customized proposal.'},
+  {q:'What is your pricing structure?',a:'We offer transparent, customized packages based on your event type, guest count and requirements. We have affordable luxury packages for every budget.'},
+  {q:'Can I customize my event package?',a:'Absolutely! Every event is fully customizable. From themes to decorations, catering to entertainment—we tailor everything to your vision.'},
+  {q:'Do you provide venue support?',a:'Yes, we assist with venue selection, booking and complete venue decoration to match your event theme perfectly.'},
+  {q:'What payment methods do you accept?',a:'We accept cash, UPI, bank transfers and all major digital payment methods. A booking advance secures your date.'},
+  {q:'How far in advance should I book?',a:'For weddings and large events, we recommend booking 2-3 months in advance. However, we also accommodate short-notice events based on availability.'},
+  {q:'Do you handle events outside Bengaluru?',a:'Yes, we organize destination events and travel across Karnataka and beyond for premium celebrations.'}
+];
+document.getElementById('faqList').innerHTML = faqs.map(f => `
+  <div class="faq-item glass rounded-2xl overflow-hidden">
+    <button class="faq-q w-full flex justify-between items-center p-6 text-left">
+      <span class="font-medium pr-4">${f.q}</span>
+      <span class="faq-icon text-gold text-2xl flex-shrink-0">+</span>
+    </button>
+    <div class="faq-answer"><p class="px-6 pb-6 text-champagne/70 text-sm leading-relaxed">${f.a}</p></div>
+  </div>`).join('');
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i => { if(i!==item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+
+// FORM
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('formMsg').classList.remove('hidden');
+  e.target.reset();
+  setTimeout(() => document.getElementById('formMsg').classList.add('hidden'), 5000);
+});
+
+// REVEAL ON SCROLL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('active'); revealObserver.unobserve(en.target); } });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// COUNTERS
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const el = en.target, target = +el.dataset.target;
+      let count = 0; const step = target/60;
+      const timer = setInterval(() => {
+        count += step;
+        if(count >= target){ el.textContent = target + '+'; clearInterval(timer); }
+        else el.textContent = Math.floor(count);
+      }, 25);
+      counterObserver.unobserve(el);
+    }
+  });
+}, {threshold:0.5});
+document.querySelectorAll('.counter').forEach(c => counterObserver.observe(c));
+</script>
+</body>
+</html>
